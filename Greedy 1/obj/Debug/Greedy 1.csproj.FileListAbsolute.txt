@@ -1,0 +1,6 @@
+C:\Users\Ilie\Desktop\II\TAP\Greedy 1\Greedy 1\bin\Debug\Greedy 1.exe.config
+C:\Users\Ilie\Desktop\II\TAP\Greedy 1\Greedy 1\bin\Debug\Greedy 1.exe
+C:\Users\Ilie\Desktop\II\TAP\Greedy 1\Greedy 1\bin\Debug\Greedy 1.pdb
+C:\Users\Ilie\Desktop\II\TAP\Greedy 1\Greedy 1\obj\Debug\Greedy 1.csprojResolveAssemblyReference.cache
+C:\Users\Ilie\Desktop\II\TAP\Greedy 1\Greedy 1\obj\Debug\Greedy 1.exe
+C:\Users\Ilie\Desktop\II\TAP\Greedy 1\Greedy 1\obj\Debug\Greedy 1.pdb
