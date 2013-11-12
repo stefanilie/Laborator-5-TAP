@@ -56,7 +56,7 @@ namespace Greedy_2
 #endregion
             }
 
-            var orderedTower = tower.OrderBy(x => x.nLenght);
+            var orderedTower = tower.OrderByDescending(x => x.nLenght);
 
             foreach(Cub cub in tower)
             {
@@ -66,6 +66,30 @@ namespace Greedy_2
             Console.WriteLine("\n\nOrdonat:");
 
             foreach (Cub cub in orderedTower)
+            {
+                Console.WriteLine("Lenght: " + cub.nLenght + " with Color: " + cub.strColor);
+            }
+
+            List<Cub> resultTower = new List<Cub>();
+
+            foreach(Cub cub in orderedTower)
+            {
+                if(resultTower.Count == 0)
+                {
+                    resultTower.Add(cub);
+                }
+                else
+                {
+                    if(resultTower.Last().strColor != cub.strColor && resultTower.Last().nLenght >= cub.nLenght)
+                    {
+                        resultTower.Add(cub);
+                    }
+                }
+            }
+
+            Console.WriteLine("\n\nThe built tower: ");
+
+            foreach (Cub cub in resultTower)
             {
                 Console.WriteLine("Lenght: " + cub.nLenght + " with Color: " + cub.strColor);
             }
