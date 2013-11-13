@@ -28,8 +28,9 @@ namespace Greedy_3
                         Console.WriteLine("Wrong value. The coins can have only descending values and they have to be multiples.");
                         Console.WriteLine("Example: A = {10, 5, 1}; \n Retry:");
                         nIsRead = Convert.ToInt32(Console.ReadLine());
+
                         //TODO: aici e buba. Vezi ca nu iti intra pe while dupa ciire si iti baga reziduu in lista.
-                        while (arrCoins.Last() % nIsRead != 0 && arrCoins.Last() < nIsRead)
+                        while (arrCoins.Last() % nIsRead != 0 || arrCoins.Last() < nIsRead || arrCoins.Contains(nIsRead))
                         {
                             Console.WriteLine("Wrong value. The coins can have only descending values and they have to be multiples.");
                             Console.WriteLine("Example: A = {10, 5, 1}; \n Retry:");
