@@ -53,32 +53,37 @@ namespace Greedy_3
             Console.WriteLine("\nGood. Now insert the sum of money you want to pay");
 
             nIsRead = Convert.ToInt32(Console.ReadLine());
+            int nBackup = nIsRead;
 
-            IDictionary<int, int> arr = new Dictionary<int, int>();
+            int[] arr = new int[arrCoins.Count];
             int nCounter = 0;
 
             foreach(int parser in arrCoins)
             {
-                nCounter = 0;
                 while(nIsRead - parser >= 0)
                 {
                     nIsRead -= parser;
-                    nCounter++; 
+                    arr[nCounter]++; 
                 }
-                arr.Add(parser, nCounter);
             }
 
             if (nIsRead != 0)
             {
-                Console.WriteLine();
+                Console.WriteLine("You will pay a larger sum o money, and get for change.");
+                //edit case here
             }
 
             Console.Write("You will pay this way:");
             
-            foreach(KeyValuePair<int, int> parser in arr)
+            foreach(int parser in arrCoins)
             {
-                if(parser.Key != 0)
-                    Console.Write(parser.Value + "x" + parser.Key + ", ");
+                if (arr[arrCoins.IndexOf(parser)] != 0)
+                {
+                    if (arr[arrCoins.IndexOf(parser)] != arr.Last())
+                        Console.Write(arr[arrCoins.IndexOf(parser)] + "x" + parser + "$ + ");
+                    else
+                        Console.Write(arr[arrCoins.IndexOf(parser)] + "x" + parser + "$");
+                }
             }
 
                 Console.ReadLine();
