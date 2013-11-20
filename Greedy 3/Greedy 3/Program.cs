@@ -29,7 +29,6 @@ namespace Greedy_3
                         Console.WriteLine("Example: A = {10, 5, 1}; \n Retry:");
                         nIsRead = Convert.ToInt32(Console.ReadLine());
 
-                        //TODO: aici e buba. Vezi ca nu iti intra pe while dupa ciire si iti baga reziduu in lista.
                         while (arrCoins.Last() % nIsRead != 0 || arrCoins.Last() < nIsRead || arrCoins.Contains(nIsRead))
                         {
                             Console.WriteLine("Wrong value. The coins can have only descending values and they have to be multiples.");
@@ -41,7 +40,7 @@ namespace Greedy_3
                 }
             }
 
-            Console.WriteLine("\n\nThis is the coin array: A = {");
+            Console.Write("\n\nThis is the coin array: A = {");
             foreach (int parser in arrCoins)
             {
                 if (parser != arrCoins.Last())
@@ -50,7 +49,42 @@ namespace Greedy_3
                     Console.Write(parser);
             }
             Console.Write("}");
-            Console.ReadLine();
+
+            Console.WriteLine("\nGood. Now insert the sum of money you want to pay");
+
+            nIsRead = Convert.ToInt32(Console.ReadLine());
+
+            int[] arr = new int[arrCoins.Count];
+            int nCounter = 0;
+
+            foreach(int parser in arrCoins)
+            {
+                while(nIsRead - parser >= 0)
+                {
+                    nIsRead -= parser;
+                    arr[arrCoins.IndexOf(parser)]++; 
+                }
+            }
+
+            Console.Write("You will pay this way:");
+            
+            foreach(int parser in arrCoins)
+            {
+                if (arr[arrCoins.IndexOf(parser)] != 0)
+                {
+                    if (arr[arrCoins.IndexOf(parser)] != arr.Last())
+                        Console.Write(arr[arrCoins.IndexOf(parser)] + "x" + parser + "$ + ");
+                    else
+                        Console.Write(arr[arrCoins.IndexOf(parser)] + "x" + parser + "$");
+                }
+                //Console.Write(parser);
+                //if (arr[arrCoins.IndexOf(parser)] != 0)
+                //    Console.Write("x" + arr[arrCoins.IndexOf(parser)] + " + ");
+                //else
+                //    Console.Write(" + ");
+            }
+
+                Console.ReadLine();
         }
     }
 }
