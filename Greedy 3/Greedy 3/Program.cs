@@ -29,7 +29,7 @@ namespace Greedy_3
                         Console.WriteLine("Example: A = {10, 5, 1}; \n Retry:");
                         nIsRead = Convert.ToInt32(Console.ReadLine());
 
-                        while (arrCoins.Last() % nIsRead != 0 || arrCoins.Last() < nIsRead || arrCoins.Contains(nIsRead))
+                        while (nIsRead == 0 || arrCoins.Last() % nIsRead != 0 || arrCoins.Last() < nIsRead || arrCoins.Contains(nIsRead))
                         {
                             Console.WriteLine("Wrong value. The coins can have only descending values and they have to be multiples.");
                             Console.WriteLine("Example: A = {10, 5, 1}; \n Retry:");
@@ -53,7 +53,6 @@ namespace Greedy_3
             Console.WriteLine("\nGood. Now insert the sum of money you want to pay");
 
             nIsRead = Convert.ToInt32(Console.ReadLine());
-            int nBackup = nIsRead;
 
             int[] arr = new int[arrCoins.Count];
             int nCounter = 0;
@@ -63,14 +62,8 @@ namespace Greedy_3
                 while(nIsRead - parser >= 0)
                 {
                     nIsRead -= parser;
-                    arr[nCounter]++; 
+                    arr[arrCoins.IndexOf(parser)]++;
                 }
-            }
-
-            if (nIsRead != 0)
-            {
-                Console.WriteLine("You will pay a larger sum o money, and get for change.");
-                //edit case here
             }
 
             Console.Write("You will pay this way:");
@@ -80,9 +73,7 @@ namespace Greedy_3
                 if (arr[arrCoins.IndexOf(parser)] != 0)
                 {
                     if (arr[arrCoins.IndexOf(parser)] != arr.Last())
-                        Console.Write(arr[arrCoins.IndexOf(parser)] + "x" + parser + "$ + ");
-                    else
-                        Console.Write(arr[arrCoins.IndexOf(parser)] + "x" + parser + "$");
+                        Console.Write(arr[arrCoins.IndexOf(parser)] + "x" + parser + "$  ");
                 }
             }
 
